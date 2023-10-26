@@ -42,8 +42,5 @@ typescript:
   version: 0.1.0
   author: onboarding-test
   clientServerStatusCodesAsErrors: true
-  flattenGlobalSecurity: true
-  installationURL: https://github.com/speakeasy-sdks/onboarding-test-sample-sdk
   maxMethodParams: 0
   packageName: The-Speakeasy-Bar
-  repoSubDirectory: .
