@@ -27,13 +27,12 @@ export class Drinks {
      * Get a drink by name, if authenticated this will include stock levels and product codes otherwise it will only include public information.
      */
     async getDrink(
-        req: operations.GetDrinkRequest,
+        name: string,
         config?: AxiosRequestConfig
     ): Promise<operations.GetDrinkResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetDrinkRequest(req);
-        }
-
+        const req = new operations.GetDrinkRequest({
+            name: name,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -132,13 +131,12 @@ export class Drinks {
      * Get a list of drinks, if authenticated this will include stock levels and product codes otherwise it will only include public information.
      */
     async listDrinks(
-        req: operations.ListDrinksRequest,
+        drinkType?: shared.DrinkType,
         config?: AxiosRequestConfig
     ): Promise<operations.ListDrinksResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListDrinksRequest(req);
-        }
-
+        const req = new operations.ListDrinksRequest({
+            drinkType: drinkType,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults

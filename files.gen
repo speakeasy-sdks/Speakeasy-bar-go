@@ -77,7 +77,7 @@ docs/models/callbacks/createorderorderupdateresponse.md
 docs/models/callbacks/createorderorderupdaterequestbodyinput.md
 docs/models/webhooks/stockupdateresponse.md
 docs/models/webhooks/stockupdaterequestbodyinput.md
-docs/sdks/thespeakeasybar/README.md
+docs/sdks/speakeasy/README.md
 docs/sdks/authentication/README.md
 docs/sdks/config/README.md
 docs/sdks/drinks/README.md

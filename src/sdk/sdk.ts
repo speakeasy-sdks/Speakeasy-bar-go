@@ -85,9 +85,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "1.0.0";
-    sdkVersion = "0.1.0";
-    genVersion = "2.172.0";
-    userAgent = "speakeasy-sdk/typescript 0.1.0 2.172.0 1.0.0 The-Speakeasy-Bar";
+    sdkVersion = "0.2.0";
+    genVersion = "2.172.4";
+    userAgent = "speakeasy-sdk/typescript 0.2.0 2.172.4 1.0.0 The-Speakeasy-Bar";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -102,7 +102,7 @@ export class SDKConfiguration {
  *
  * @see {@link https://docs.speakeasy.bar} - The Speakeasy Bar Documentation.
  */
-export class TheSpeakeasyBar {
+export class Speakeasy {
     /**
      * The authentication endpoints.
      */

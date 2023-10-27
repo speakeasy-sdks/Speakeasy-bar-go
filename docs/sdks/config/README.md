@@ -12,17 +12,18 @@ Subscribe to webhooks.
 ### Example Usage
 
 ```typescript
-import { TheSpeakeasyBar } from "The-Speakeasy-Bar";
+import { Speakeasy } from "The-Speakeasy-Bar";
 import { SubscribeToWebhooksRequestBodyWebhook } from "The-Speakeasy-Bar/dist/sdk/models/operations";
 
 (async() => {
-  const sdk = new TheSpeakeasyBar({
+  const sdk = new Speakeasy({
     apiKey: "",
   });
 
   const res = await sdk.config.subscribeToWebhooks([
     {},
   ]);
+
 
   if (res.statusCode == 200) {
     // handle response

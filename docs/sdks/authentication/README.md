@@ -16,14 +16,15 @@ Authenticate with the API by providing a username and password.
 ### Example Usage
 
 ```typescript
-import { TheSpeakeasyBar } from "The-Speakeasy-Bar";
+import { Speakeasy } from "The-Speakeasy-Bar";
 
 (async() => {
-  const sdk = new TheSpeakeasyBar({
+  const sdk = new Speakeasy({
     apiKey: "",
   });
 
   const res = await sdk.authentication.authenticate({});
+
 
   if (res.statusCode == 200) {
     // handle response

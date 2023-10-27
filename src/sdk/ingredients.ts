@@ -27,13 +27,12 @@ export class Ingredients {
      * Get a list of ingredients, if authenticated this will include stock levels and product codes otherwise it will only include public information.
      */
     async listIngredients(
-        req: operations.ListIngredientsRequest,
+        ingredients?: string[],
         config?: AxiosRequestConfig
     ): Promise<operations.ListIngredientsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListIngredientsRequest(req);
-        }
-
+        const req = new operations.ListIngredientsRequest({
+            ingredients: ingredients,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults

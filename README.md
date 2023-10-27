@@ -61,28 +61,30 @@ Once you're finished iterating and happy with the output push only the latest ve
 ### NPM
 
 ```bash
-npm add https://github.com/speakeasy-sdks/onboarding-test-sample-sdk
+npm add https://github.com/speakeasy-sdks/speakeasy-bar-sdk
 ```
 
 ### Yarn
 
 ```bash
-yarn add https://github.com/speakeasy-sdks/onboarding-test-sample-sdk
+yarn add https://github.com/speakeasy-sdks/speakeasy-bar-sdk
 ```
 <!-- End SDK Installation -->
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
 ```typescript
-import { TheSpeakeasyBar } from "The-Speakeasy-Bar";
+import { Speakeasy } from "The-Speakeasy-Bar";
+import { ListDrinksRequest } from "The-Speakeasy-Bar/dist/sdk/models/operations";
 import { DrinkType } from "The-Speakeasy-Bar/dist/sdk/models/shared";
 
 (async () => {
-    const sdk = new TheSpeakeasyBar({
+    const sdk = new Speakeasy({
         apiKey: "",
     });
+    const drinkType: DrinkType = DrinkType.Spirit;
 
-    const res = await sdk.drinks.listDrinks({});
+    const res = await sdk.drinks.listDrinks(drinkType);
 
     if (res.statusCode == 200) {
         // handle response
@@ -122,8 +124,6 @@ import { DrinkType } from "The-Speakeasy-Bar/dist/sdk/models/shared";
 
 <!-- Start Dev Containers -->
 
-
-
 <!-- End Dev Containers -->
 
 
@@ -137,10 +137,10 @@ Handling errors in your SDK should largely match your expectations.  All operati
 ## Example
 
 ```typescript
-import { TheSpeakeasyBar } from "The-Speakeasy-Bar";
+import { Speakeasy } from "The-Speakeasy-Bar";
 
 (async() => {
-  const sdk = new TheSpeakeasyBar({
+  const sdk = new Speakeasy({
     apiKey: "",
   });
 
@@ -153,6 +153,7 @@ import { TheSpeakeasyBar } from "The-Speakeasy-Bar";
       console.error(e) // handle exception 
     
   }
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -172,7 +173,7 @@ The Typescript SDK makes API calls using the (axios)[https://axios-http.com/docs
 For example, you could specify a header for every request that your sdk makes as follows:
 
 ```typescript
-from The-Speakeasy-Bar import TheSpeakeasyBar;
+from The-Speakeasy-Bar import Speakeasy;
 import axios;
 
 const httpClient = axios.create({
@@ -180,11 +181,76 @@ const httpClient = axios.create({
 })
 
 
-const sdk = new TheSpeakeasyBar({defaultClient: httpClient});
+const sdk = new Speakeasy({defaultClient: httpClient});
+```
+<!-- End Custom HTTP Client -->
+
+
+
+<!-- Start Server Selection -->
+# Server Selection
+
+## Select Server by Name
+
+You can override the default server globally by passing a server name to the `server: string` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the names associated with the available servers:
+
+| Name | Server | Variables |
+| ----- | ------ | --------- |
+| `prod` | `https://speakeasy.bar` | None |
+| `staging` | `https://staging.speakeasy.bar` | None |
+| `customer` | `https://{organization}.{environment}.speakeasy.bar` | `environment` (default is `prod`), `organization` (default is `api`) |
+
+
+Some of the server options above contain variables. If you want to set the values of those variables, the following options are provided for doing so:
+ * `environment: ServerEnvironment`
+
+ * `organization: string`
+
+For example:
+
+
+```typescript
+import { Speakeasy } from "The-Speakeasy-Bar";
+
+(async () => {
+    const sdk = new Speakeasy({
+        apiKey: "",
+        server: "customer",
+    });
+
+    const res = await sdk.authentication.authenticate({});
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
 ```
 
 
-<!-- End Custom HTTP Client -->
+## Override Server URL Per-Client
+
+The default server can also be overridden globally by passing a URL to the `serverURL: str` optional parameter when initializing the SDK client instance. For example:
+
+
+```typescript
+import { Speakeasy } from "The-Speakeasy-Bar";
+
+(async () => {
+    const sdk = new Speakeasy({
+        apiKey: "",
+        serverURL: "https://speakeasy.bar",
+    });
+
+    const res = await sdk.authentication.authenticate({});
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
+<!-- End Server Selection -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

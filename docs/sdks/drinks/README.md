@@ -17,16 +17,17 @@ Get a drink by name, if authenticated this will include stock levels and product
 ### Example Usage
 
 ```typescript
-import { TheSpeakeasyBar } from "The-Speakeasy-Bar";
+import { Speakeasy } from "The-Speakeasy-Bar";
+import { GetDrinkRequest } from "The-Speakeasy-Bar/dist/sdk/models/operations";
 
 (async() => {
-  const sdk = new TheSpeakeasyBar({
+  const sdk = new Speakeasy({
     apiKey: "",
   });
+const name: string = "string";
 
-  const res = await sdk.drinks.getDrink({
-    name: "string",
-  });
+  const res = await sdk.drinks.getDrink(name);
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -36,10 +37,10 @@ import { TheSpeakeasyBar } from "The-Speakeasy-Bar";
 
 ### Parameters
 
-| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `request`                                                                | [operations.GetDrinkRequest](../../models/operations/getdrinkrequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
-| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `name`                                                       | *string*                                                     | :heavy_check_mark:                                           | N/A                                                          |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response
@@ -54,15 +55,18 @@ Get a list of drinks, if authenticated this will include stock levels and produc
 ### Example Usage
 
 ```typescript
-import { TheSpeakeasyBar } from "The-Speakeasy-Bar";
+import { Speakeasy } from "The-Speakeasy-Bar";
+import { ListDrinksRequest } from "The-Speakeasy-Bar/dist/sdk/models/operations";
 import { DrinkType } from "The-Speakeasy-Bar/dist/sdk/models/shared";
 
 (async() => {
-  const sdk = new TheSpeakeasyBar({
+  const sdk = new Speakeasy({
     apiKey: "",
   });
+const drinkType: DrinkType = DrinkType.Spirit;
 
-  const res = await sdk.drinks.listDrinks({});
+  const res = await sdk.drinks.listDrinks(drinkType);
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -74,7 +78,7 @@ import { DrinkType } from "The-Speakeasy-Bar/dist/sdk/models/shared";
 
 | Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
 | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `request`                                                                    | [operations.ListDrinksRequest](../../models/operations/listdrinksrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `drinkType`                                                                  | [shared.DrinkType](../../models/shared/drinktype.md)                         | :heavy_minus_sign:                                                           | The type of drink to filter by. If not provided all drinks will be returned. |
 | `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
 
 

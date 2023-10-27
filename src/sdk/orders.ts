@@ -27,13 +27,14 @@ export class Orders {
      * Create an order for a drink.
      */
     async createOrder(
-        req: operations.CreateOrderRequest,
+        requestBody: shared.OrderInput[],
+        callbackUrl?: string,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateOrderResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateOrderRequest(req);
-        }
-
+        const req = new operations.CreateOrderRequest({
+            requestBody: requestBody,
+            callbackUrl: callbackUrl,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults

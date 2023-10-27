@@ -16,18 +16,19 @@ Get a list of ingredients, if authenticated this will include stock levels and p
 ### Example Usage
 
 ```typescript
-import { TheSpeakeasyBar } from "The-Speakeasy-Bar";
+import { Speakeasy } from "The-Speakeasy-Bar";
+import { ListIngredientsRequest } from "The-Speakeasy-Bar/dist/sdk/models/operations";
 
 (async() => {
-  const sdk = new TheSpeakeasyBar({
+  const sdk = new Speakeasy({
     apiKey: "",
   });
+const ingredients: string[] = [
+  "string",
+];
 
-  const res = await sdk.ingredients.listIngredients({
-    ingredients: [
-      "string",
-    ],
-  });
+  const res = await sdk.ingredients.listIngredients(ingredients);
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -37,10 +38,10 @@ import { TheSpeakeasyBar } from "The-Speakeasy-Bar";
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.ListIngredientsRequest](../../models/operations/listingredientsrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `ingredients`                                                                         | *string*[]                                                                            | :heavy_minus_sign:                                                                    | A list of ingredients to filter by. If not provided all ingredients will be returned. |
+| `config`                                                                              | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                          | :heavy_minus_sign:                                                                    | Available config options for making requests.                                         |
 
 
 ### Response
