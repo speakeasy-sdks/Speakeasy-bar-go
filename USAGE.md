@@ -2,9 +2,9 @@
 
 
 ```typescript
-import { Speakeasy } from "The-Speakeasy-Bar";
-import { ListDrinksRequest } from "The-Speakeasy-Bar/dist/sdk/models/operations";
-import { DrinkType } from "The-Speakeasy-Bar/dist/sdk/models/shared";
+import { Speakeasy } from "speakeasy-bar";
+import { ListDrinksRequest } from "speakeasy-bar/dist/sdk/models/operations";
+import { DrinkType } from "speakeasy-bar/dist/sdk/models/shared";
 
 (async () => {
     const sdk = new Speakeasy({

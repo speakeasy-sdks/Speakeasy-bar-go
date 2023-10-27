@@ -16,8 +16,8 @@ Get a list of ingredients, if authenticated this will include stock levels and p
 ### Example Usage
 
 ```typescript
-import { Speakeasy } from "The-Speakeasy-Bar";
-import { ListIngredientsRequest } from "The-Speakeasy-Bar/dist/sdk/models/operations";
+import { Speakeasy } from "speakeasy-bar";
+import { ListIngredientsRequest } from "speakeasy-bar/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Speakeasy({

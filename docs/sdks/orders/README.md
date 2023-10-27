@@ -16,10 +16,10 @@ Create an order for a drink.
 ### Example Usage
 
 ```typescript
-import { Speakeasy } from "The-Speakeasy-Bar";
-import { CreateOrderOrderUpdateRequestBodyInput, CreateOrderOrderUpdateResponse } from "The-Speakeasy-Bar/dist/sdk/models/callbacks";
-import { CreateOrderRequest } from "The-Speakeasy-Bar/dist/sdk/models/operations";
-import { ErrorT, OrderInput, OrderType } from "The-Speakeasy-Bar/dist/sdk/models/shared";
+import { Speakeasy } from "speakeasy-bar";
+import { CreateOrderOrderUpdateRequestBodyInput, CreateOrderOrderUpdateResponse } from "speakeasy-bar/dist/sdk/models/callbacks";
+import { CreateOrderRequest } from "speakeasy-bar/dist/sdk/models/operations";
+import { ErrorT, OrderInput, OrderType } from "speakeasy-bar/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Speakeasy({

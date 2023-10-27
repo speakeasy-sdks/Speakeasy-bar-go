@@ -74,9 +74,9 @@ yarn add https://github.com/speakeasy-sdks/speakeasy-bar-sdk
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
 ```typescript
-import { Speakeasy } from "The-Speakeasy-Bar";
-import { ListDrinksRequest } from "The-Speakeasy-Bar/dist/sdk/models/operations";
-import { DrinkType } from "The-Speakeasy-Bar/dist/sdk/models/shared";
+import { Speakeasy } from "speakeasy-bar";
+import { ListDrinksRequest } from "speakeasy-bar/dist/sdk/models/operations";
+import { DrinkType } from "speakeasy-bar/dist/sdk/models/shared";
 
 (async () => {
     const sdk = new Speakeasy({
@@ -137,7 +137,7 @@ Handling errors in your SDK should largely match your expectations.  All operati
 ## Example
 
 ```typescript
-import { Speakeasy } from "The-Speakeasy-Bar";
+import { Speakeasy } from "speakeasy-bar";
 
 (async() => {
   const sdk = new Speakeasy({
@@ -173,7 +173,7 @@ The Typescript SDK makes API calls using the (axios)[https://axios-http.com/docs
 For example, you could specify a header for every request that your sdk makes as follows:
 
 ```typescript
-from The-Speakeasy-Bar import Speakeasy;
+from speakeasy-bar import Speakeasy;
 import axios;
 
 const httpClient = axios.create({
@@ -210,7 +210,7 @@ For example:
 
 
 ```typescript
-import { Speakeasy } from "The-Speakeasy-Bar";
+import { Speakeasy } from "speakeasy-bar";
 
 (async () => {
     const sdk = new Speakeasy({
@@ -234,7 +234,7 @@ The default server can also be overridden globally by passing a URL to the `serv
 
 
 ```typescript
-import { Speakeasy } from "The-Speakeasy-Bar";
+import { Speakeasy } from "speakeasy-bar";
 
 (async () => {
     const sdk = new Speakeasy({

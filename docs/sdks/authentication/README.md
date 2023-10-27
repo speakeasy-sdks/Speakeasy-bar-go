@@ -16,7 +16,7 @@ Authenticate with the API by providing a username and password.
 ### Example Usage
 
 ```typescript
-import { Speakeasy } from "The-Speakeasy-Bar";
+import { Speakeasy } from "speakeasy-bar";
 
 (async() => {
   const sdk = new Speakeasy({

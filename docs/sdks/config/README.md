@@ -12,8 +12,8 @@ Subscribe to webhooks.
 ### Example Usage
 
 ```typescript
-import { Speakeasy } from "The-Speakeasy-Bar";
-import { SubscribeToWebhooksRequestBodyWebhook } from "The-Speakeasy-Bar/dist/sdk/models/operations";
+import { Speakeasy } from "speakeasy-bar";
+import { SubscribeToWebhooksRequestBodyWebhook } from "speakeasy-bar/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Speakeasy({

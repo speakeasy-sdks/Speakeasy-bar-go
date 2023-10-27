@@ -40,7 +40,7 @@ python:
   maxMethodParams: 4
   packageName: speakeasybar
 typescript:
-  version: 0.2.0
+  version: 0.3.0
   author: onboarding-test
   clientServerStatusCodesAsErrors: true
   flattenGlobalSecurity: true

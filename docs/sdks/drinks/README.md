@@ -17,8 +17,8 @@ Get a drink by name, if authenticated this will include stock levels and product
 ### Example Usage
 
 ```typescript
-import { Speakeasy } from "The-Speakeasy-Bar";
-import { GetDrinkRequest } from "The-Speakeasy-Bar/dist/sdk/models/operations";
+import { Speakeasy } from "speakeasy-bar";
+import { GetDrinkRequest } from "speakeasy-bar/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Speakeasy({
@@ -55,9 +55,9 @@ Get a list of drinks, if authenticated this will include stock levels and produc
 ### Example Usage
 
 ```typescript
-import { Speakeasy } from "The-Speakeasy-Bar";
-import { ListDrinksRequest } from "The-Speakeasy-Bar/dist/sdk/models/operations";
-import { DrinkType } from "The-Speakeasy-Bar/dist/sdk/models/shared";
+import { Speakeasy } from "speakeasy-bar";
+import { ListDrinksRequest } from "speakeasy-bar/dist/sdk/models/operations";
+import { DrinkType } from "speakeasy-bar/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Speakeasy({
