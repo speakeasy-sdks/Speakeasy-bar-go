@@ -45,6 +45,6 @@ typescript:
   clientServerStatusCodesAsErrors: true
   flattenGlobalSecurity: true
   installationURL: https://github.com/speakeasy-sdks/speakeasy-bar-sdk
-  maxMethodParams: 4
+  maxMethodParams: 6
   packageName: The-Speakeasy-Bar
   repoSubDirectory: .
