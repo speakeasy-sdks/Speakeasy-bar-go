@@ -10,7 +10,7 @@ generation:
     omitDescriptionIfSummaryPresent: false
   baseServerURL: ""
   repoURL: https://github.com/speakeasy-sdks/onboarding-test-sample-sdk.git
-  sdkClassName: The-Speakeasy-Bar
+  sdkClassName: speakeasy
   singleTagPerOp: false
   tagNamespacingDisabled: false
   telemetryEnabled: false
@@ -42,5 +42,5 @@ typescript:
   version: 0.1.0
   author: onboarding-test
   clientServerStatusCodesAsErrors: true
-  maxMethodParams: 0
+  maxMethodParams: 4
   packageName: The-Speakeasy-Bar
