@@ -33,6 +33,12 @@ features:
     globalServerURLs: 2.82.0
     inputOutputModels: 2.81.1
     serverIDs: 2.81.2
+csharp:
+  version: 0.0.1
+  author: onboarding-test
+  dotnetVersion: net5.0
+  maxMethodParams: 0
+  packageName: Speakeasy.Bar
 go:
   version: 0.0.1
   clientServerStatusCodesAsErrors: true
