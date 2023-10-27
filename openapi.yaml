@@ -16,6 +16,26 @@ externalDocs:
   url: https://docs.speakeasy.bar
   description: The Speakeasy Bar Documentation.
 servers:
+  - url: https://speakeasy.bar
+    description: The production server.
+    x-speakeasy-server-id: prod
+  - url: https://staging.speakeasy.bar
+    description: The staging server.
+    x-speakeasy-server-id: staging
+  - url: https://{organization}.{environment}.speakeasy.bar
+    description: A per-organization and per-environment API.
+    x-speakeasy-server-id: customer
+    variables:
+      organization:
+        description: The organization name. Defaults to a generic organization.
+        default: api
+      environment:
+        description: The environment name. Defaults to the production environment.
+        default: prod
+        enum:
+          - prod
+          - staging
+          - dev
 security:
   - apiKey: []
 tags:
@@ -73,7 +93,7 @@ paths:
   /drinks:
     get:
       x-speakeasy-usage-example: true
-      operationId: getDrink
+      operationId: listDrinks
       summary: Get a list of drinks.
       description: Get a list of drinks, if authenticated this will include stock levels and product codes otherwise it will only include public information.
       security:
@@ -108,7 +128,12 @@ paths:
       description: Get a drink by name, if authenticated this will include stock levels and product codes otherwise it will only include public information.
       tags:
         - drinks
-
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: A drink.
