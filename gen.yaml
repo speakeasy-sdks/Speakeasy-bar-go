@@ -46,5 +46,5 @@ typescript:
   flattenGlobalSecurity: true
   installationURL: https://github.com/speakeasy-sdks/speakeasy-bar-sdk
   maxMethodParams: 6
-  packageName: The-Speakeasy-Bar
+  packageName: speakeasy-bar
   repoSubDirectory: .
