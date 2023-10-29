@@ -2,19 +2,26 @@ configVersion: 1.0.0
 management:
   docChecksum: 8db86c8597b22945c2b3f77241037075
   docVersion: 1.0.0
-  speakeasyVersion: 1.108.1
-  generationVersion: 2.172.4
+  speakeasyVersion: 1.109.0
+  generationVersion: 2.173.0
 generation:
   comments:
     disableComments: false
     omitDescriptionIfSummaryPresent: false
   baseServerURL: ""
-  repoURL: https://github.com/speakeasy-sdks/speakeasy-bar-sdk.git
+  repoURL: https://github.com/speakeasy-sdks/speakeasy-bar-c-.git
   sdkClassName: speakeasy
   singleTagPerOp: false
   tagNamespacingDisabled: false
   telemetryEnabled: false
 features:
+  csharp:
+    core: 2.93.0
+    examples: 2.81.3
+    globalSecurity: 2.81.1
+    globalServerURLs: 2.82.0
+    inputOutputModels: 2.81.1
+    serverIDs: 2.81.1
   python:
     core: 2.85.3
     errors: 2.81.3
@@ -34,11 +41,13 @@ features:
     inputOutputModels: 2.81.1
     serverIDs: 2.81.2
 csharp:
-  version: 0.0.1
+  version: 0.1.0
   author: onboarding-test
   dotnetVersion: net5.0
   maxMethodParams: 0
   packageName: Speakeasy.Bar
+  published: true
+  repoSubDirectory: .
 go:
   version: 0.0.1
   clientServerStatusCodesAsErrors: true
