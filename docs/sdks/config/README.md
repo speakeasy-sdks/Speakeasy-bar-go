@@ -1,45 +1,42 @@
-# Config
-(*config*)
+# ConfigSDK
+(*Config*)
 
 ### Available Operations
 
-* [subscribeToWebhooks](#subscribetowebhooks) - Subscribe to webhooks.
+* [SubscribeToWebhooks](#subscribetowebhooks) - Subscribe to webhooks.
 
-## subscribeToWebhooks
+## SubscribeToWebhooks
 
 Subscribe to webhooks.
 
 ### Example Usage
 
-```typescript
-import { Speakeasy } from "speakeasy-bar";
-import { SubscribeToWebhooksRequestBodyWebhook } from "speakeasy-bar/dist/sdk/models/operations";
+```csharp
+using Speakeasy;
+using Speakeasy.Models.Shared;
+using Speakeasy.Models.Operations;
 
-(async() => {
-  const sdk = new Speakeasy({
-    apiKey: "",
-  });
+var sdk = new SpeakeasySDK(
+    security: new Security() {
+        ApiKey = "",
+    }
+);
 
-  const res = await sdk.config.subscribeToWebhooks([
-    {},
-  ]);
+var res = await sdk.Config.SubscribeToWebhooksAsync(new List<SubscribeToWebhooksRequestBody>() {
+    new SubscribeToWebhooksRequestBody() {},
+});
 
-
-  if (res.statusCode == 200) {
-    // handle response
-  }
-})();
+// handle response
 ```
 
 ### Parameters
 
-| Parameter                                                        | Type                                                             | Required                                                         | Description                                                      |
-| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `request`                                                        | [operations.SubscribeToWebhooksRequestBody[]](../../models//.md) | :heavy_check_mark:                                               | The request object to use for the request.                       |
-| `config`                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)     | :heavy_minus_sign:                                               | Available config options for making requests.                    |
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `request`                                                                                         | List<[SubscribeToWebhooksRequestBody](../../models/operations/SubscribeToWebhooksRequestBody.md)> | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
 
 ### Response
 
-**Promise<[operations.SubscribeToWebhooksResponse](../../models/operations/subscribetowebhooksresponse.md)>**
+**[SubscribeToWebhooksResponse](../../models/operations/SubscribeToWebhooksResponse.md)**
 
