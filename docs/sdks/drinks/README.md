@@ -1,5 +1,5 @@
 # Drinks
-(*drinks*)
+(*.Drinks*)
 
 ## Overview
 
@@ -7,82 +7,75 @@ The drinks endpoints.
 
 ### Available Operations
 
-* [getDrink](#getdrink) - Get a drink.
-* [listDrinks](#listdrinks) - Get a list of drinks.
+* [GetDrink](#getdrink) - Get a drink.
+* [ListDrinks](#listdrinks) - Get a list of drinks.
 
-## getDrink
+## GetDrink
 
 Get a drink by name, if authenticated this will include stock levels and product codes otherwise it will only include public information.
 
 ### Example Usage
 
-```typescript
-import { Speakeasy } from "speakeasy-bar";
-import { GetDrinkRequest } from "speakeasy-bar/dist/sdk/models/operations";
+```csharp
+using Speakeasy.Bar;
+using Speakeasy.Bar.Models.Components;
+using Speakeasy.Bar.Models.Requests;
 
-(async() => {
-  const sdk = new Speakeasy({
-    apiKey: "",
-  });
-const name: string = "string";
+var sdk = new Speakeasy(
+    security: new Security() {
+        ApiKey = "",
+    }
+);
 
-  const res = await sdk.drinks.getDrink(name);
+var res = await sdk.Drinks.GetDrinkAsync(new GetDrinkRequest() {
+    Name = "string",
+});
 
-
-  if (res.statusCode == 200) {
-    // handle response
-  }
-})();
+// handle response
 ```
 
 ### Parameters
 
-| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `name`                                                       | *string*                                                     | :heavy_check_mark:                                           | N/A                                                          |
-| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
+| Parameter                                                     | Type                                                          | Required                                                      | Description                                                   |
+| ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
+| `request`                                                     | [GetDrinkRequest](../../models/operations/GetDrinkRequest.md) | :heavy_check_mark:                                            | The request object to use for the request.                    |
 
 
 ### Response
 
-**Promise<[operations.GetDrinkResponse](../../models/operations/getdrinkresponse.md)>**
+**[GetDrinkResponse](../../models/operations/GetDrinkResponse.md)**
 
 
-## listDrinks
+## ListDrinks
 
 Get a list of drinks, if authenticated this will include stock levels and product codes otherwise it will only include public information.
 
 ### Example Usage
 
-```typescript
-import { Speakeasy } from "speakeasy-bar";
-import { ListDrinksRequest } from "speakeasy-bar/dist/sdk/models/operations";
-import { DrinkType } from "speakeasy-bar/dist/sdk/models/shared";
+```csharp
+using Speakeasy.Bar;
+using Speakeasy.Bar.Models.Components;
+using Speakeasy.Bar.Models.Requests;
 
-(async() => {
-  const sdk = new Speakeasy({
-    apiKey: "",
-  });
-const drinkType: DrinkType = DrinkType.Spirit;
+var sdk = new Speakeasy(
+    security: new Security() {
+        ApiKey = "",
+    }
+);
 
-  const res = await sdk.drinks.listDrinks(drinkType);
+var res = await sdk.Drinks.ListDrinksAsync(new ListDrinksRequest() {});
 
-
-  if (res.statusCode == 200) {
-    // handle response
-  }
-})();
+// handle response
 ```
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `drinkType`                                                                  | [shared.DrinkType](../../models/shared/drinktype.md)                         | :heavy_minus_sign:                                                           | The type of drink to filter by. If not provided all drinks will be returned. |
-| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
+| Parameter                                                         | Type                                                              | Required                                                          | Description                                                       |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `request`                                                         | [ListDrinksRequest](../../models/operations/ListDrinksRequest.md) | :heavy_check_mark:                                                | The request object to use for the request.                        |
 
 
 ### Response
 
-**Promise<[operations.ListDrinksResponse](../../models/operations/listdrinksresponse.md)>**
+**[ListDrinksResponse](../../models/operations/ListDrinksResponse.md)**
 
