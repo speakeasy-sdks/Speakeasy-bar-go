@@ -1,5 +1,5 @@
 # Orders
-(*orders*)
+(*Orders*)
 
 ## Overview
 
@@ -7,52 +7,48 @@ The orders endpoints.
 
 ### Available Operations
 
-* [createOrder](#createorder) - Create an order.
+* [CreateOrder](#createorder) - Create an order.
 
-## createOrder
+## CreateOrder
 
 Create an order for a drink.
 
 ### Example Usage
 
-```typescript
-import { Speakeasy } from "speakeasy-bar";
-import { CreateOrderOrderUpdateRequestBodyInput, CreateOrderOrderUpdateResponse } from "speakeasy-bar/dist/sdk/models/callbacks";
-import { CreateOrderRequest } from "speakeasy-bar/dist/sdk/models/operations";
-import { ErrorT, OrderInput, OrderType } from "speakeasy-bar/dist/sdk/models/shared";
+```csharp
+using Speakeasy.Bar;
+using Speakeasy.Bar.Models.Components;
+using Speakeasy.Bar.Models.Requests;
+using System.Collections.Generic;
+using Speakeasy.Bar.Models.Callbacks;
 
-(async() => {
-  const sdk = new Speakeasy({
-    apiKey: "",
-  });
-const requestBody: shared.OrderInput[] = [
-  {
-    productCode: "APM-1F2D3",
-    quantity: 26535,
-    type: OrderType.Drink,
-  },
-];
-const callbackUrl: string = "string";
+var sdk = new Speakeasy(
+    security: new Security() {
+        ApiKey = "",
+    }
+);
 
-  const res = await sdk.orders.createOrder(requestBody, callbackUrl);
+var res = await sdk.Orders.CreateOrderAsync(new CreateOrderRequest() {
+    RequestBody = new List<OrderInput>() {
+        new OrderInput() {
+            ProductCode = "APM-1F2D3",
+            Quantity = 26535,
+            Type = OrderType.Drink,
+        },
+    },
+});
 
-
-  if (res.statusCode == 200) {
-    // handle response
-  }
-})();
+// handle response
 ```
 
 ### Parameters
 
-| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `requestBody`                                                | [shared.OrderInput](../../models/shared/orderinput.md)[]     | :heavy_check_mark:                                           | N/A                                                          |
-| `callbackUrl`                                                | *string*                                                     | :heavy_minus_sign:                                           | The url to call when the order is updated.                   |
-| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
+| Parameter                                                         | Type                                                              | Required                                                          | Description                                                       |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `request`                                                         | [CreateOrderRequest](../../Models/Requests/CreateOrderRequest.md) | :heavy_check_mark:                                                | The request object to use for the request.                        |
 
 
 ### Response
 
-**Promise<[operations.CreateOrderResponse](../../models/operations/createorderresponse.md)>**
+**[CreateOrderResponse](../../Models/Requests/CreateOrderResponse.md)**
 
