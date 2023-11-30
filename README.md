@@ -55,76 +55,64 @@ servers:
 
 Once you're finished iterating and happy with the output push only the latest version of spec into the repo and regenerate the SDK using step 6 above.
 
-<!-- Start SDK Installation -->
+<!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
-### NPM
+### Nuget
 
 ```bash
-npm add https://github.com/speakeasy-sdks/speakeasy-bar-sdk
+dotnet add package Speakeasy.Bar
 ```
+<!-- End SDK Installation [installation] -->
 
-### Yarn
-
-```bash
-yarn add https://github.com/speakeasy-sdks/speakeasy-bar-sdk
-```
-<!-- End SDK Installation -->
-
+<!-- Start SDK Example Usage [usage] -->
 ## SDK Example Usage
-<!-- Start SDK Example Usage -->
-```typescript
-import { Speakeasy } from "speakeasy-bar";
-import { ListDrinksRequest } from "speakeasy-bar/dist/sdk/models/operations";
-import { DrinkType } from "speakeasy-bar/dist/sdk/models/shared";
 
-(async () => {
-    const sdk = new Speakeasy({
-        apiKey: "",
-    });
-    const drinkType: DrinkType = DrinkType.Spirit;
+### Example
 
-    const res = await sdk.drinks.listDrinks(drinkType);
+```csharp
+using Speakeasy.Bar;
+using Speakeasy.Bar.Models.Components;
+using Speakeasy.Bar.Models.Requests;
 
-    if (res.statusCode == 200) {
-        // handle response
+var sdk = new Speakeasy(
+    security: new Security() {
+        ApiKey = "",
     }
-})();
+);
 
+var res = await sdk.Drinks.ListDrinksAsync(new ListDrinksRequest() {});
+
+// handle response
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
 
-<!-- Start SDK Available Operations -->
+<!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
+### [Authentication](docs/sdks/authentication/README.md)
 
-### [authentication](docs/sdks/authentication/README.md)
+* [Authenticate](docs/sdks/authentication/README.md#authenticate) - Authenticate with the API by providing a username and password.
 
-* [authenticate](docs/sdks/authentication/README.md#authenticate) - Authenticate with the API by providing a username and password.
+### [Drinks](docs/sdks/drinks/README.md)
 
-### [config](docs/sdks/config/README.md)
+* [GetDrink](docs/sdks/drinks/README.md#getdrink) - Get a drink.
+* [ListDrinks](docs/sdks/drinks/README.md#listdrinks) - Get a list of drinks.
 
-* [subscribeToWebhooks](docs/sdks/config/README.md#subscribetowebhooks) - Subscribe to webhooks.
+### [Ingredients](docs/sdks/ingredients/README.md)
 
-### [drinks](docs/sdks/drinks/README.md)
+* [ListIngredients](docs/sdks/ingredients/README.md#listingredients) - Get a list of ingredients.
 
-* [getDrink](docs/sdks/drinks/README.md#getdrink) - Get a drink.
-* [listDrinks](docs/sdks/drinks/README.md#listdrinks) - Get a list of drinks.
+### [Orders](docs/sdks/orders/README.md)
 
-### [ingredients](docs/sdks/ingredients/README.md)
+* [CreateOrder](docs/sdks/orders/README.md#createorder) - Create an order.
 
-* [listIngredients](docs/sdks/ingredients/README.md#listingredients) - Get a list of ingredients.
+### [Config](docs/sdks/config/README.md)
 
-### [orders](docs/sdks/orders/README.md)
-
-* [createOrder](docs/sdks/orders/README.md#createorder) - Create an order.
-<!-- End SDK Available Operations -->
-
+* [SubscribeToWebhooks](docs/sdks/config/README.md#subscribetowebhooks) - Subscribe to webhooks.
+<!-- End Available Resources and Operations [operations] -->
 
 
-<!-- Start Dev Containers -->
-
-<!-- End Dev Containers -->
 
 
 
