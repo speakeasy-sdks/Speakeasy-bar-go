@@ -1,23 +1,18 @@
-<!-- Start SDK Example Usage -->
+<!-- Start SDK Example Usage [usage] -->
+```csharp
+using Speakeasy.Bar;
+using Speakeasy.Bar.Models.Components;
+using Speakeasy.Bar.Models.Requests;
 
-
-```typescript
-import { Speakeasy } from "speakeasy-bar";
-import { ListDrinksRequest } from "speakeasy-bar/dist/sdk/models/operations";
-import { DrinkType } from "speakeasy-bar/dist/sdk/models/shared";
-
-(async () => {
-    const sdk = new Speakeasy({
-        apiKey: "",
+var sdk = new Speakeasy(
+    security: new Security() {
+        ApiKey = "",
     });
-    const drinkType: DrinkType = DrinkType.Spirit;
 
-    const res = await sdk.drinks.listDrinks(drinkType);
+ListDrinksRequest req = new ListDrinksRequest() {};
 
-    if (res.statusCode == 200) {
-        // handle response
-    }
-})();
+var res = await sdk.Drinks.ListDrinksAsync(req);
 
+// handle response
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
