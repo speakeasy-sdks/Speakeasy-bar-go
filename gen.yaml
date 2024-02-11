@@ -1,43 +1,30 @@
-configVersion: 1.0.0
-management:
-  docChecksum: 8db86c8597b22945c2b3f77241037075
-  docVersion: 1.0.0
-  speakeasyVersion: 1.108.1
-  generationVersion: 2.172.4
+configVersion: 2.0.0
 generation:
-  comments:
-    disableComments: false
-    omitDescriptionIfSummaryPresent: false
-  baseServerURL: ""
-  repoURL: https://github.com/speakeasy-sdks/speakeasy-bar-sdk.git
   sdkClassName: speakeasy
-  singleTagPerOp: false
-  tagNamespacingDisabled: false
+  usageSnippets:
+    optionalPropertyRendering: withExample
+  fixes:
+    nameResolutionDec2023: false
+    parameterOrderingFeb2024: false
+    requestResponseComponentNamesFeb2024: false
+  baseServerURL: ""
   telemetryEnabled: false
-features:
-  python:
-    core: 2.85.3
-    errors: 2.81.3
-    examples: 2.81.1
-    flattening: 2.81.1
-    globalSecurity: 2.81.1
-    globalServerURLs: 2.82.0
-    inputOutputModels: 2.81.1
-    serverIDs: 2.81.1
-  typescript:
-    core: 2.94.0
-    errors: 2.81.7
-    examples: 2.81.3
-    flattening: 2.81.1
-    globalSecurity: 2.82.0
-    globalServerURLs: 2.82.0
-    inputOutputModels: 2.81.1
-    serverIDs: 2.81.2
 csharp:
   version: 0.0.1
   author: onboarding-test
   dotnetVersion: net5.0
+  flattenGlobalSecurity: true
+  imports:
+    option: openapi
+    paths:
+      callbacks: Models/Callbacks
+      errors: Models/Errors
+      operations: Models/Requests
+      shared: Models/Components
+      webhooks: Models/Webhooks
+  inputModelSuffix: input
   maxMethodParams: 0
+  outputModelSuffix: output
   packageName: Speakeasy.Bar
 go:
   version: 0.0.1
@@ -56,7 +43,5 @@ typescript:
   author: onboarding-test
   clientServerStatusCodesAsErrors: true
   flattenGlobalSecurity: true
-  installationURL: https://github.com/speakeasy-sdks/speakeasy-bar-sdk
   maxMethodParams: 6
   packageName: speakeasy-bar
-  repoSubDirectory: .
