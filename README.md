@@ -55,76 +55,62 @@ servers:
 
 Once you're finished iterating and happy with the output push only the latest version of spec into the repo and regenerate the SDK using step 6 above.
 
-<!-- Start SDK Installation -->
+<!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
-### NPM
+### Nuget
 
 ```bash
-npm add https://github.com/speakeasy-sdks/speakeasy-bar-sdk
+dotnet add package Speakeasy.Bar
 ```
+<!-- End SDK Installation [installation] -->
 
-### Yarn
-
-```bash
-yarn add https://github.com/speakeasy-sdks/speakeasy-bar-sdk
-```
-<!-- End SDK Installation -->
-
+<!-- Start SDK Example Usage [usage] -->
 ## SDK Example Usage
-<!-- Start SDK Example Usage -->
-```typescript
-import { Speakeasy } from "speakeasy-bar";
-import { ListDrinksRequest } from "speakeasy-bar/dist/sdk/models/operations";
-import { DrinkType } from "speakeasy-bar/dist/sdk/models/shared";
 
-(async () => {
-    const sdk = new Speakeasy({
-        apiKey: "",
-    });
-    const drinkType: DrinkType = DrinkType.Spirit;
+### Example
 
-    const res = await sdk.drinks.listDrinks(drinkType);
+```csharp
+using SpeakeasyBar;
+using SpeakeasyBar.Models.Components;
+using SpeakeasyBar.Models.Requests;
 
-    if (res.statusCode == 200) {
-        // handle response
-    }
-})();
+var sdk = new Speakeasy();
 
+ListDrinksRequest req = new ListDrinksRequest() {};
+
+var res = await sdk.Drinks.ListDrinksAsync(req);
+
+// handle response
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
 
-<!-- Start SDK Available Operations -->
+<!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
+### [Authentication](docs/sdks/authentication/README.md)
 
-### [authentication](docs/sdks/authentication/README.md)
+* [Authenticate](docs/sdks/authentication/README.md#authenticate) - Authenticate with the API by providing a username and password.
 
-* [authenticate](docs/sdks/authentication/README.md#authenticate) - Authenticate with the API by providing a username and password.
+### [Drinks](docs/sdks/drinks/README.md)
 
-### [config](docs/sdks/config/README.md)
+* [GetDrink](docs/sdks/drinks/README.md#getdrink) - Get a drink.
+* [ListDrinks](docs/sdks/drinks/README.md#listdrinks) - Get a list of drinks.
 
-* [subscribeToWebhooks](docs/sdks/config/README.md#subscribetowebhooks) - Subscribe to webhooks.
+### [Ingredients](docs/sdks/ingredients/README.md)
 
-### [drinks](docs/sdks/drinks/README.md)
+* [ListIngredients](docs/sdks/ingredients/README.md#listingredients) - Get a list of ingredients.
 
-* [getDrink](docs/sdks/drinks/README.md#getdrink) - Get a drink.
-* [listDrinks](docs/sdks/drinks/README.md#listdrinks) - Get a list of drinks.
+### [Orders](docs/sdks/orders/README.md)
 
-### [ingredients](docs/sdks/ingredients/README.md)
+* [CreateOrder](docs/sdks/orders/README.md#createorder) - Create an order.
 
-* [listIngredients](docs/sdks/ingredients/README.md#listingredients) - Get a list of ingredients.
+### [Config](docs/sdks/config/README.md)
 
-### [orders](docs/sdks/orders/README.md)
-
-* [createOrder](docs/sdks/orders/README.md#createorder) - Create an order.
-<!-- End SDK Available Operations -->
-
+* [SubscribeToWebhooks](docs/sdks/config/README.md#subscribetowebhooks) - Subscribe to webhooks.
+<!-- End Available Resources and Operations [operations] -->
 
 
-<!-- Start Dev Containers -->
-
-<!-- End Dev Containers -->
 
 
 
@@ -187,10 +173,12 @@ const sdk = new Speakeasy({defaultClient: httpClient});
 
 
 
-<!-- Start Server Selection -->
-# Server Selection
+<!-- Start Server Selection [server] -->
+## Server Selection
 
-## Select Server by Name
+## Server Selection
+
+### Select Server by Name
 
 You can override the default server globally by passing a server name to the `server: string` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the names associated with the available servers:
 
@@ -198,59 +186,46 @@ You can override the default server globally by passing a server name to the `se
 | ----- | ------ | --------- |
 | `prod` | `https://speakeasy.bar` | None |
 | `staging` | `https://staging.speakeasy.bar` | None |
-| `customer` | `https://{organization}.{environment}.speakeasy.bar` | `environment` (default is `prod`), `organization` (default is `api`) |
+| `customer` | `https://{organization}.{environment}.speakeasy.bar` | `0` (default is `prod`), `1` (default is `api`) |
 
+
+#### Variables
 
 Some of the server options above contain variables. If you want to set the values of those variables, the following options are provided for doing so:
  * `environment: ServerEnvironment`
-
  * `organization: string`
 
-For example:
+### Override Server URL Per-Client
 
+The default server can also be overridden globally by passing a URL to the `serverUrl: str` optional parameter when initializing the SDK client instance. For example:
+<!-- End Server Selection [server] -->
 
-```typescript
-import { Speakeasy } from "speakeasy-bar";
+<!-- Start Authentication [security] -->
+## Authentication
 
-(async () => {
-    const sdk = new Speakeasy({
-        apiKey: "",
-        server: "customer",
-    });
+### Per-Client Security Schemes
 
-    const res = await sdk.authentication.authenticate({});
+This SDK supports the following security scheme globally:
 
-    if (res.statusCode == 200) {
-        // handle response
-    }
-})();
+| Name     | Type     | Scheme   |
+| -------- | -------- | -------- |
+| `ApiKey` | apiKey   | API key  |
 
+To authenticate with the API the `ApiKey` parameter must be set when initializing the SDK client instance. For example:
+```csharp
+using SpeakeasyBar;
+using SpeakeasyBar.Models.Components;
+using SpeakeasyBar.Models.Requests;
+
+var sdk = new Speakeasy(ApiKey: "<YOUR_API_KEY_HERE>");
+
+AuthenticateRequestBody req = new AuthenticateRequestBody() {};
+
+var res = await sdk.Authentication.AuthenticateAsync(req);
+
+// handle response
 ```
-
-
-## Override Server URL Per-Client
-
-The default server can also be overridden globally by passing a URL to the `serverURL: str` optional parameter when initializing the SDK client instance. For example:
-
-
-```typescript
-import { Speakeasy } from "speakeasy-bar";
-
-(async () => {
-    const sdk = new Speakeasy({
-        apiKey: "",
-        serverURL: "https://speakeasy.bar",
-    });
-
-    const res = await sdk.authentication.authenticate({});
-
-    if (res.statusCode == 200) {
-        // handle response
-    }
-})();
-
-```
-<!-- End Server Selection -->
+<!-- End Authentication [security] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 
