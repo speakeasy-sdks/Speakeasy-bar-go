@@ -16,9 +16,9 @@ Get a list of ingredients, if authenticated this will include stock levels and p
 ### Example Usage
 
 ```csharp
-using SpeakeasyBar;
-using SpeakeasyBar.Models.Components;
-using SpeakeasyBar.Models.Requests;
+using Speakeasy.Bar;
+using Speakeasy.Bar.Models.Components;
+using Speakeasy.Bar.Models.Requests;
 using System.Collections.Generic;
 
 var sdk = new Speakeasy(ApiKey: "<YOUR_API_KEY_HERE>");
@@ -40,4 +40,9 @@ var res = await sdk.Ingredients.ListIngredientsAsync(req);
 ### Response
 
 **[ListIngredientsResponse](../../Models/Requests/ListIngredientsResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Speakeasy.Bar.Models.Errors.APIError     | 5XX                                      | application/json                         |
+| Speakeasy.Bar.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

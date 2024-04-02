@@ -17,9 +17,9 @@ Get a drink by name, if authenticated this will include stock levels and product
 ### Example Usage
 
 ```csharp
-using SpeakeasyBar;
-using SpeakeasyBar.Models.Components;
-using SpeakeasyBar.Models.Requests;
+using Speakeasy.Bar;
+using Speakeasy.Bar.Models.Components;
+using Speakeasy.Bar.Models.Requests;
 
 var sdk = new Speakeasy(ApiKey: "<YOUR_API_KEY_HERE>");
 
@@ -42,7 +42,12 @@ var res = await sdk.Drinks.GetDrinkAsync(req);
 ### Response
 
 **[GetDrinkResponse](../../Models/Requests/GetDrinkResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Speakeasy.Bar.Models.Errors.APIError     | 5XX                                      | application/json                         |
+| Speakeasy.Bar.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## ListDrinks
 
@@ -51,9 +56,9 @@ Get a list of drinks, if authenticated this will include stock levels and produc
 ### Example Usage
 
 ```csharp
-using SpeakeasyBar;
-using SpeakeasyBar.Models.Components;
-using SpeakeasyBar.Models.Requests;
+using Speakeasy.Bar;
+using Speakeasy.Bar.Models.Components;
+using Speakeasy.Bar.Models.Requests;
 
 var sdk = new Speakeasy();
 
@@ -74,4 +79,9 @@ var res = await sdk.Drinks.ListDrinksAsync(req);
 ### Response
 
 **[ListDrinksResponse](../../Models/Requests/ListDrinksResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Speakeasy.Bar.Models.Errors.APIError     | 5XX                                      | application/json                         |
+| Speakeasy.Bar.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

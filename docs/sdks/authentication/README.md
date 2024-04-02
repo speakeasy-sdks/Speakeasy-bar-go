@@ -16,9 +16,9 @@ Authenticate with the API by providing a username and password.
 ### Example Usage
 
 ```csharp
-using SpeakeasyBar;
-using SpeakeasyBar.Models.Components;
-using SpeakeasyBar.Models.Requests;
+using Speakeasy.Bar;
+using Speakeasy.Bar.Models.Components;
+using Speakeasy.Bar.Models.Requests;
 
 var sdk = new Speakeasy();
 
@@ -39,4 +39,9 @@ var res = await sdk.Authentication.AuthenticateAsync(req);
 ### Response
 
 **[AuthenticateResponse](../../Models/Requests/AuthenticateResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Speakeasy.Bar.Models.Errors.APIError     | 5XX                                      | application/json                         |
+| Speakeasy.Bar.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

@@ -1,8 +1,8 @@
 <!-- Start SDK Example Usage [usage] -->
 ```csharp
-using SpeakeasyBar;
-using SpeakeasyBar.Models.Components;
-using SpeakeasyBar.Models.Requests;
+using Speakeasy.Bar;
+using Speakeasy.Bar.Models.Components;
+using Speakeasy.Bar.Models.Requests;
 
 var sdk = new Speakeasy();
 

@@ -3,10 +3,10 @@ id: 5a4e5430-74b1-4f15-8b33-f876cfed9367
 management:
   docChecksum: 8db86c8597b22945c2b3f77241037075
   docVersion: 1.0.0
-  speakeasyVersion: 1.228.1
-  generationVersion: 2.292.0
-  releaseVersion: 0.0.1
-  configChecksum: 5812042704d67483a48239e0752064f4
+  speakeasyVersion: 1.231.1
+  generationVersion: 2.295.1
+  releaseVersion: 0.1.0
+  configChecksum: 1d431d32e42bda6912fa5ca669983085
   repoURL: https://github.com/speakeasy-sdks/speakeasy-bar-c-.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/speakeasy-bar-sdk
@@ -14,7 +14,8 @@ management:
 features:
   csharp:
     callbacks: 1.0.0
-    core: 3.5.0
+    core: 3.6.0
+    errors: 0.0.1
     examples: 2.81.3
     globalSecurity: 2.83.4
     globalServerURLs: 2.82.3
@@ -40,59 +41,61 @@ features:
     inputOutputModels: 2.81.1
     serverIDs: 2.81.2
 generatedFiles:
-  - SpeakeasyBar/Authentication.cs
-  - SpeakeasyBar/Drinks.cs
-  - SpeakeasyBar/Ingredients.cs
-  - SpeakeasyBar/Orders.cs
-  - SpeakeasyBar/Config.cs
-  - SpeakeasyBar/Speakeasy.cs
+  - Speakeasy/Bar/Authentication.cs
+  - Speakeasy/Bar/Drinks.cs
+  - Speakeasy/Bar/Ingredients.cs
+  - Speakeasy/Bar/Orders.cs
+  - Speakeasy/Bar/Config.cs
+  - Speakeasy/Bar/Speakeasy.cs
   - global.json
   - Speakeasy.Bar.sln
-  - SpeakeasyBar/Utils/AnyDeserializer.cs
-  - SpeakeasyBar/Utils/BigIntStrConverter.cs
-  - SpeakeasyBar/Utils/DecimalStrConverter.cs
-  - SpeakeasyBar/Utils/EnumConverter.cs
-  - SpeakeasyBar/Utils/FlexibleObjectDeserializer.cs
-  - SpeakeasyBar/Utils/HeaderSerializer.cs
-  - SpeakeasyBar/Utils/IsoDateTimeSerializer.cs
-  - SpeakeasyBar/Utils/RequestBodySerializer.cs
-  - SpeakeasyBar/Utils/SecuritySerializer.cs
-  - SpeakeasyBar/Utils/SpeakeasyHttpClient.cs
-  - SpeakeasyBar/Utils/SpeakeasyMetadata.cs
-  - SpeakeasyBar/Utils/URLBuilder.cs
-  - SpeakeasyBar/Utils/Utilities.cs
-  - SpeakeasyBar/Speakeasy.Bar.csproj
-  - SpeakeasyBar/Models/Requests/AuthenticateRequestBody.cs
-  - SpeakeasyBar/Models/Requests/AuthenticateResponseBody.cs
-  - SpeakeasyBar/Models/Requests/AuthenticateResponse.cs
-  - SpeakeasyBar/Models/Requests/GetDrinkRequest.cs
-  - SpeakeasyBar/Models/Requests/GetDrinkResponse.cs
-  - SpeakeasyBar/Models/Requests/ListDrinksRequest.cs
-  - SpeakeasyBar/Models/Requests/ListDrinksResponse.cs
-  - SpeakeasyBar/Models/Requests/ListIngredientsRequest.cs
-  - SpeakeasyBar/Models/Requests/ListIngredientsResponse.cs
-  - SpeakeasyBar/Models/Requests/CreateOrderRequest.cs
-  - SpeakeasyBar/Models/Requests/CreateOrderResponse.cs
-  - SpeakeasyBar/Models/Requests/Webhook.cs
-  - SpeakeasyBar/Models/Requests/RequestBody.cs
-  - SpeakeasyBar/Models/Requests/SubscribeToWebhooksResponse.cs
-  - SpeakeasyBar/Models/Components/Error.cs
-  - SpeakeasyBar/Models/Components/APIError.cs
-  - SpeakeasyBar/Models/Components/Drink.cs
-  - SpeakeasyBar/Models/Components/DrinkType.cs
-  - SpeakeasyBar/Models/Components/Ingredient.cs
-  - SpeakeasyBar/Models/Components/IngredientType.cs
-  - SpeakeasyBar/Models/Components/Status.cs
-  - SpeakeasyBar/Models/Components/Order.cs
-  - SpeakeasyBar/Models/Components/OrderType.cs
-  - SpeakeasyBar/Models/Components/OrderInput.cs
-  - SpeakeasyBar/Models/Components/Security.cs
-  - SpeakeasyBar/Models/Components/IngredientInput.cs
-  - SpeakeasyBar/Models/Components/DrinkInput.cs
-  - SpeakeasyBar/Models/Callbacks/CreateOrderOrderUpdateResponse.cs
-  - SpeakeasyBar/Models/Callbacks/CreateOrderOrderUpdateRequestBody.cs
-  - SpeakeasyBar/Models/Webhooks/StockUpdateResponse.cs
-  - SpeakeasyBar/Models/Webhooks/StockUpdateRequestBody.cs
+  - Speakeasy/Bar/Utils/AnyDeserializer.cs
+  - Speakeasy/Bar/Utils/BigIntStrConverter.cs
+  - Speakeasy/Bar/Utils/DecimalStrConverter.cs
+  - Speakeasy/Bar/Utils/EnumConverter.cs
+  - Speakeasy/Bar/Utils/FlexibleObjectDeserializer.cs
+  - Speakeasy/Bar/Utils/HeaderSerializer.cs
+  - Speakeasy/Bar/Utils/IsoDateTimeSerializer.cs
+  - Speakeasy/Bar/Utils/RequestBodySerializer.cs
+  - Speakeasy/Bar/Utils/ResponseBodyDeserializer.cs
+  - Speakeasy/Bar/Utils/SecuritySerializer.cs
+  - Speakeasy/Bar/Utils/SpeakeasyHttpClient.cs
+  - Speakeasy/Bar/Utils/SpeakeasyMetadata.cs
+  - Speakeasy/Bar/Utils/URLBuilder.cs
+  - Speakeasy/Bar/Utils/Utilities.cs
+  - Speakeasy/Bar/Speakeasy.Bar.csproj
+  - Speakeasy/Bar/Models/Errors/SDKException.cs
+  - Speakeasy/Bar/Models/Requests/AuthenticateRequestBody.cs
+  - Speakeasy/Bar/Models/Requests/AuthenticateResponseBody.cs
+  - Speakeasy/Bar/Models/Requests/AuthenticateResponse.cs
+  - Speakeasy/Bar/Models/Requests/GetDrinkRequest.cs
+  - Speakeasy/Bar/Models/Requests/GetDrinkResponse.cs
+  - Speakeasy/Bar/Models/Requests/ListDrinksRequest.cs
+  - Speakeasy/Bar/Models/Requests/ListDrinksResponse.cs
+  - Speakeasy/Bar/Models/Requests/ListIngredientsRequest.cs
+  - Speakeasy/Bar/Models/Requests/ListIngredientsResponse.cs
+  - Speakeasy/Bar/Models/Requests/CreateOrderRequest.cs
+  - Speakeasy/Bar/Models/Requests/CreateOrderResponse.cs
+  - Speakeasy/Bar/Models/Requests/Webhook.cs
+  - Speakeasy/Bar/Models/Requests/RequestBody.cs
+  - Speakeasy/Bar/Models/Requests/SubscribeToWebhooksResponse.cs
+  - Speakeasy/Bar/Models/Components/Error.cs
+  - Speakeasy/Bar/Models/Components/Drink.cs
+  - Speakeasy/Bar/Models/Components/DrinkType.cs
+  - Speakeasy/Bar/Models/Components/Ingredient.cs
+  - Speakeasy/Bar/Models/Components/IngredientType.cs
+  - Speakeasy/Bar/Models/Components/Status.cs
+  - Speakeasy/Bar/Models/Components/Order.cs
+  - Speakeasy/Bar/Models/Components/OrderType.cs
+  - Speakeasy/Bar/Models/Components/OrderInput.cs
+  - Speakeasy/Bar/Models/Components/Security.cs
+  - Speakeasy/Bar/Models/Components/IngredientInput.cs
+  - Speakeasy/Bar/Models/Components/DrinkInput.cs
+  - Speakeasy/Bar/Models/Errors/APIError.cs
+  - Speakeasy/Bar/Models/Callbacks/CreateOrderOrderUpdateResponse.cs
+  - Speakeasy/Bar/Models/Callbacks/CreateOrderOrderUpdateRequestBody.cs
+  - Speakeasy/Bar/Models/Webhooks/StockUpdateResponse.cs
+  - Speakeasy/Bar/Models/Webhooks/StockUpdateRequestBody.cs
   - docs/Models/Requests/AuthenticateRequestBody.md
   - docs/Models/Requests/AuthenticateResponseBody.md
   - docs/Models/Requests/AuthenticateResponse.md
@@ -108,7 +111,6 @@ generatedFiles:
   - docs/Models/Requests/RequestBody.md
   - docs/Models/Requests/SubscribeToWebhooksResponse.md
   - docs/Models/Components/Error.md
-  - docs/Models/Components/APIError.md
   - docs/Models/Components/Drink.md
   - docs/Models/Components/DrinkType.md
   - docs/Models/Components/Ingredient.md
@@ -120,6 +122,7 @@ generatedFiles:
   - docs/Models/Components/Security.md
   - docs/Models/Components/IngredientInput.md
   - docs/Models/Components/DrinkInput.md
+  - docs/Models/Errors/APIError.md
   - docs/Models/Callbacks/CreateOrderOrderUpdateResponse.md
   - docs/Models/Callbacks/CreateOrderOrderUpdateRequestBody.md
   - docs/Models/Webhooks/StockUpdateResponse.md

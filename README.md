@@ -71,9 +71,9 @@ dotnet add package Speakeasy.Bar
 ### Example
 
 ```csharp
-using SpeakeasyBar;
-using SpeakeasyBar.Models.Components;
-using SpeakeasyBar.Models.Requests;
+using Speakeasy.Bar;
+using Speakeasy.Bar.Models.Components;
+using Speakeasy.Bar.Models.Requests;
 
 var sdk = new Speakeasy();
 
@@ -114,39 +114,48 @@ var res = await sdk.Drinks.ListDrinksAsync(req);
 
 
 
-<!-- Start Error Handling -->
-# Error Handling
+<!-- Start Error Handling [errors] -->
+## Error Handling
 
-Handling errors in your SDK should largely match your expectations.  All operations return a response object or throw an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
+Handling errors in this SDK should largely match your expectations.  All operations return a response object or thow an exception.  If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate type.
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Speakeasy.Bar.Models.Errors.APIError     | 5XX                                      | application/json                         |
+| Speakeasy.Bar.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
-## Example
+### Example
 
-```typescript
-import { Speakeasy } from "speakeasy-bar";
+```csharp
+using Speakeasy.Bar;
+using Speakeasy.Bar.Models.Components;
+using System;
+using Speakeasy.Bar.Models.Errors;
+using Speakeasy.Bar.Models.Requests;
 
-(async() => {
-  const sdk = new Speakeasy({
-    apiKey: "",
-  });
+var sdk = new Speakeasy();
 
-  
-  let res;
-  try {
-    res = await sdk.authentication.authenticate({});
-  } catch (e) { 
-    } else if (e instanceof APIError) {
-      console.error(e) // handle exception 
-    
-  }
+AuthenticateRequestBody req = new AuthenticateRequestBody() {};
 
-
-  if (res.statusCode == 200) {
+try
+{
+    var res = await sdk.Authentication.AuthenticateAsync(req);
     // handle response
-  }
-})();
+}
+catch (Exception ex)
+{
+    if (ex is APIError)
+    {
+        // handle exception
+    }
+    else if (ex is Speakeasy.Bar.Models.Errors.SDKException)
+    {
+        // handle exception
+    }
+}
+
 ```
-<!-- End Error Handling -->
+<!-- End Error Handling [errors] -->
 
 
 
@@ -174,8 +183,6 @@ const sdk = new Speakeasy({defaultClient: httpClient});
 
 
 <!-- Start Server Selection [server] -->
-## Server Selection
-
 ## Server Selection
 
 ### Select Server by Name
@@ -213,9 +220,9 @@ This SDK supports the following security scheme globally:
 
 To authenticate with the API the `ApiKey` parameter must be set when initializing the SDK client instance. For example:
 ```csharp
-using SpeakeasyBar;
-using SpeakeasyBar.Models.Components;
-using SpeakeasyBar.Models.Requests;
+using Speakeasy.Bar;
+using Speakeasy.Bar.Models.Components;
+using Speakeasy.Bar.Models.Requests;
 
 var sdk = new Speakeasy(ApiKey: "<YOUR_API_KEY_HERE>");
 
